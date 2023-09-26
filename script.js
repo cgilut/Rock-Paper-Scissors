@@ -11,7 +11,7 @@ let playerSelection = prompt("Rock, paper or scissors?");
             playerSelection = prompt("Rock, paper or scissors?!");
             playerSelection = playerSelection.toLowerCase()
         }
-alert(`You have chosen ${playerSelection}.`);
+// alert(`You have chosen ${playerSelection}.`);
 
 
 // get a random input from computer and save it into a function
@@ -23,3 +23,23 @@ alert(computerSelection);
 
 
 // compare two function and decide the winner
+
+if (
+    (playerSelection == "rock" && computerSelection == "rock") ||
+    (playerSelection == "paper" && computerSelection == "paper") ||
+    (playerSelection == "scissors" && computerSelection == "scissors")
+) {
+    alert("Draw!");
+} else if (
+    (playerSelection == "rock" && computerSelection == "scissors") ||
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "scissors" && computerSelection == "paper")
+) {
+    alert("You win!");
+} else if (
+    (playerSelection == "rock" && computerSelection == "paper") ||
+    (playerSelection == "paper" && computerSelection == "scissors") ||
+    (playerSelection == "scissors" && computerSelection == "rock")
+) {
+    alert("You lose!");
+}
