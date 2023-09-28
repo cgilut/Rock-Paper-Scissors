@@ -36,10 +36,11 @@ if (
     (playerSelection == "scissors" && computerSelection == "paper")
 ) {
     alert("You win!");
-} else if (
-    (playerSelection == "rock" && computerSelection == "paper") ||
-    (playerSelection == "paper" && computerSelection == "scissors") ||
-    (playerSelection == "scissors" && computerSelection == "rock")
-) {
+// } else if (
+//     (playerSelection == "rock" && computerSelection == "paper") ||
+//     (playerSelection == "paper" && computerSelection == "scissors") ||
+//     (playerSelection == "scissors" && computerSelection == "rock")
+} else 
+ {
     alert("You lose!");
 }
