@@ -1,28 +1,37 @@
 "use strict"
 
 // get input from the user and save it into a function
-let playerSelection = prompt("Rock, paper or scissors?");
-    playerSelection = playerSelection.toLowerCase()
-        while (
-            playerSelection != "rock" &&
-            playerSelection != "paper" &&
-            playerSelection != "scissors"
-        ) {
-            playerSelection = prompt("Rock, paper or scissors?!");
-            playerSelection = playerSelection.toLowerCase()
-        }
-// alert(`You have chosen ${playerSelection}.`);
+function getPlayerSelection () {
+    let playerSign = prompt("Rock, paper or scissors?");
+        playerSign = playerSign.toLowerCase()
+            while (
+                playerSign != "rock" &&
+                playerSign != "paper" &&
+                playerSign != "scissors"
+            ) {
+                playerSign = prompt("Rock, paper or scissors?!");
+                playerSign = playerSign.toLowerCase()
+            }
+            return playerSign;
+    // alert(`You have chosen ${playerSign}.`);
+}
 
 
 // get a random input from computer and save it into a function
-
-let signArray = [ "rock" , "paper" , "scissors" ];
-let randomSign = Math.floor(Math.random() * 3);
-let computerSelection = signArray[randomSign];
-alert(computerSelection);
+function getComputerSelection() {
+    let signArray = [ "rock" , "paper" , "scissors" ];
+    let randomSign = Math.floor(Math.random() * 3);
+    let computerSign = signArray[randomSign];
+    // console.log(computerSign);
+    return computerSign;
+}
 
 
 // compare two function and decide the winner
+
+let playerSelection = getPlayerSelection()
+let computerSelection = getComputerSelection()
+console.log(playerSelection, computerSelection)
 
 if (
     (playerSelection == "rock" && computerSelection == "rock") ||
