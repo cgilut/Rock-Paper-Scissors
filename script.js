@@ -26,13 +26,12 @@ function getComputerSelection() {
     return computerSign;
 }
 
-let playerSelection = getPlayerSelection()
-let computerSelection = getComputerSelection()
-console.log(playerSelection, computerSelection)
-
 // compare two function and decide the winner
 
 function playRound() {
+    let playerSelection = getPlayerSelection()
+    let computerSelection = getComputerSelection()
+        console.log(playerSelection, computerSelection)
     if (
         (playerSelection == "rock" && computerSelection == "rock") ||
         (playerSelection == "paper" && computerSelection == "paper") ||
@@ -44,10 +43,38 @@ function playRound() {
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-        alert("You win!");
+        alert("You win the round!");
+        return "Player";
     } else {
-        alert("You lose!");
+        alert("You lose the round!");
+        return "Computer";
     }
 }
 
-playRound()
+function game() {
+    let playerCounter = 0
+    let computerCounter = 0
+    let i = 0
+// play until 5 rounds are played and count # of wins by player and computer
+    for (i = 0; i < 5; i++) {
+        let roundOutcome = playRound();
+            if (roundOutcome == "Computer") {
+                computerCounter = computerCounter + 1
+                console.log(computerCounter)
+            }
+            else if (roundOutcome == "Player") {
+                playerCounter = playerCounter + 1
+                console.log(playerCounter)
+            }
+    }
+// determine the winner 
+    if (playerCounter > computerCounter) {
+        alert("You win the game!")
+    } else if (computerCounter > playerCounter) {
+        alert("You lose the game!")
+    } else {
+        alert("It's a draw!")
+    }
+}
+
+game()
