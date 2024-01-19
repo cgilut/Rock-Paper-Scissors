@@ -1,3 +1,41 @@
-.logo{
-    width: 80px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppin", sans-serif;
 }
+
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: grey;
+}
+
+header {
+    position: fix;
+    top: 0;
+    left: o;
+    width: 100%;
+    padding: 0;
+    background: rgb(66, 66, 66);
+    border-bottom: 2px solid black;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px;
+    font-weight:bolder;
+    color: #fff;
+}
+
+.logo{
+    width: 100px;
+    user-select: none;
+    transform: scale(1.2);
+}
+
