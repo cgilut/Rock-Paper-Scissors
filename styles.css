@@ -2,40 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppin", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: grey;
+    background: #333333;
 }
 
 header {
-    position: fix;
-    top: 0;
-    left: o;
-    width: 100%;
-    padding: 0;
-    background: rgb(66, 66, 66);
-    border-bottom: 2px solid black;
-    
-}
-
-nav {
+    background-color: #000;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    font-size: 40px;
-    font-weight:bolder;
+    justify-content: space-between;
+    border-bottom: 4px solid #f0705a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header__title h2{
     color: #fff;
+    font-size: 36px;
 }
 
-.logo{
+.rps-logo {
     width: 100px;
-    user-select: none;
-    transform: scale(1.2);
+    margin-left: 100px;
 }
 
+.header__github {
+    display: flex;
+    margin-right: 100px;
+    color: #fff;
+    /* border: 2px solid white; */
+    align-items: center;
+}
+
+.header__github-logo {
+    font-size: 24px;
+}
+
+.header__github-link a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+    transition: transform 0.3s ease; 
+    display: inline-block;
+}
+
+.header__github-link a:hover {
+    text-decoration: underline;
+    color: ;
+    transform: scale(1.2);
+    color: #f0705a;
+}
