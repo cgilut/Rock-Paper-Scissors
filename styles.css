@@ -5,17 +5,27 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     background: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
     background-color: #000;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     border-bottom: 4px solid #f0705a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 .header__title h2{
@@ -32,7 +42,6 @@ header {
     display: flex;
     margin-right: 100px;
     color: #fff;
-    /* border: 2px solid white; */
     align-items: center;
 }
 
@@ -50,7 +59,21 @@ header {
 
 .header__github-link a:hover {
     text-decoration: underline;
-    color: ;
     transform: scale(1.2);
     color: #f0705a;
+}
+
+.wrapper {
+    margin: auto;
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    min-height: 100px;
+    border: 4px solid #f0705a;
+    border-radius: 50px;
+    background: #414141;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
