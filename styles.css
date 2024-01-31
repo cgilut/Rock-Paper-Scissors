@@ -78,7 +78,7 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.wrapper__start-the-game {
+.wrapper__lets-play-btn {
     width: 300px;
     height: 200px;
     border: 4px solid #fff;
@@ -88,9 +88,13 @@ header {
     background: transparent;
 }
 
-.wrapper__start-the-game:hover {
+.wrapper__lets-play-btn:hover {
     background: #fff;
     color: #000;
     cursor: pointer;
     transition: 300ms;
+}
+
+.wrapper__lets-play-btn.display-none {
+    display: none;
 }
