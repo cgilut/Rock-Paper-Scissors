@@ -67,13 +67,30 @@ header {
     margin: auto;
     width: 80%;
     max-width: 800px;
-    height: 400px;
-    min-height: 100px;
-    border: 4px solid #f0705a;
-    border-radius: 50px;
+    height: 100%;
+    /* min-height: 100px; */
+    border-left: 4px solid black;
+    border-right: 4px solid black;
     background: #414141;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper__start-the-game {
+    width: 300px;
+    height: 200px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 36px;
+    background: transparent;
+}
+
+.wrapper__start-the-game:hover {
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: 300ms;
 }
