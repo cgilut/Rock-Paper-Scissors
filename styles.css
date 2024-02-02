@@ -22,7 +22,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-bottom: 4px solid #f0705a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -31,16 +31,15 @@ header {
 .header__title h2{
     color: #fff;
     font-size: 36px;
+    text-align: center;
 }
 
 .rps-logo {
     width: 100px;
-    margin-left: 100px;
 }
 
 .header__github {
     display: flex;
-    margin-right: 100px;
     color: #fff;
     align-items: center;
 }
@@ -66,7 +65,8 @@ header {
 .wrapper {
     width: 80%;
     max-width: 800px;
-    min-width: 500px;
+    /* min-width: 500px; */
+    width: 100%;
     height: 100%;
     border-left: 4px solid black;
     border-right: 4px solid black;
@@ -74,12 +74,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 
 .wrapper__main-game {
-    /* position: absolute; */
     color: #fff;
     border: 2px solid lime;
     display: flex;
@@ -95,10 +95,19 @@ header {
     border: 2px solid #fff;
     display: flex;
     text-align: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    max-width: 400px;
+    max-width: 800px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+}
+
+.wrapper__you,
+.wrapper__opponent {
+    max-width: 200px;
+    width: 100%;
 }
 
 .wrapper__sign-choice {
@@ -107,28 +116,42 @@ header {
     text-align: center;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    gap: 30px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.rock,
-.paper,
-.scissors {
+.wrapper__rock,
+.wrapper__paper,
+.wrapper__scissors {
     background: #606060;
     height: 160px;
     width: 160px;
     border: 2px solid #000;
     border-radius: 20px;
     cursor: pointer;
+    margin: 10px auto;
     transition: transform 0.3s ease;
 }
 
-.rock:hover,
-.paper:hover,
-.scissors:hover {
+.wrapper__rock:hover,
+.wrapper__paper:hover,
+.wrapper__scissors:hover {
     border: 3px solid #000;
     background: #adadad;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
     transform: scale(1.05)
 }
+
+/* @media (max-width: 650px) {
+    .wrapper__sign-choice {
+        flex-direction: column;
+        align-items: center;
+    }
+} */
+
+/* @media (max-width: 700px) {
+    .wrapper__sign-choice {
+        width: 100px;
+        height: 100px;
+    }
+} */
