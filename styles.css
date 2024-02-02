@@ -64,11 +64,10 @@ header {
 }
 
 .wrapper {
-    margin: auto;
     width: 80%;
     max-width: 800px;
+    min-width: 500px;
     height: 100%;
-    /* min-height: 100px; */
     border-left: 4px solid black;
     border-right: 4px solid black;
     background: #414141;
@@ -78,23 +77,58 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.wrapper__lets-play-btn {
-    width: 300px;
-    height: 200px;
-    border: 4px solid #fff;
-    border-radius: 50px;
+
+.wrapper__main-game {
+    /* position: absolute; */
     color: #fff;
-    font-size: 36px;
-    background: transparent;
+    border: 2px solid lime;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.wrapper__lets-play-btn:hover {
-    background: #fff;
-    color: #000;
+.wrapper__outcome {
+    text-align: center;
+}
+
+.wrapper__score-board {
+    border: 2px solid #fff;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.wrapper__sign-choice {
+    border: 2px solid hotpink;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.rock,
+.paper,
+.scissors {
+    background: #606060;
+    height: 160px;
+    width: 160px;
+    border: 2px solid #000;
+    border-radius: 20px;
     cursor: pointer;
-    transition: 300ms;
+    transition: transform 0.3s ease;
 }
 
-.wrapper__lets-play-btn.display-none {
-    display: none;
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+    border: 3px solid #000;
+    background: #adadad;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05)
 }

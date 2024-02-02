@@ -1,5 +1,5 @@
-const letsPlayBtn = document.querySelector(".wrapper__lets-play-btn")
+// const letsPlayBtn = document.querySelector(".wrapper__lets-play-btn")
 
-letsPlayBtn.addEventListener("click", () => {
-    letsPlayBtn.classList.add("display-none");
-});
+// letsPlayBtn.addEventListener("click", () => {
+//     letsPlayBtn.classList.add("display-none");
+// });
