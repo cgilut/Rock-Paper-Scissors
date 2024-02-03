@@ -73,6 +73,7 @@ header {
     align-items: center;
     flex-direction: column;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    flex: 1;
 }
 
 
@@ -83,6 +84,7 @@ header {
     flex-direction: column;
     flex-wrap: wrap;
     padding: 10px;
+    /* height: 100%; */
 }
 
 .wrapper__outcome {
@@ -106,10 +108,24 @@ header {
 
 .wrapper__you,
 .wrapper__opponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     max-width: 200px;
     width: 100%;
     border: 2px solid skyblue;
     margin: 10px;
+}
+
+.wrapper__your-sign,
+.wrapper__opponent-sign {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
 }
 
 .wrapper__sign-choice {
@@ -128,14 +144,16 @@ header {
     background: #606060;
     height: 160px;
     width: 160px;
-    border: 2px solid #000;
+    border: 2px solid #000; 
     border-radius: 20px;
     cursor: pointer;
     margin: 10px auto;
     transition: transform 0.3s ease;
 }
 
-img {
+img.wrapper__img-paper,
+img.wrapper__img-rock,
+img.wrapper__img-scissors {
     height: 160px;
     width: 100%;
     max-width: 160px;
@@ -155,16 +173,9 @@ img.wrapper__img-rock {
     transform: scale(1.05)
 }
 
-/* @media (max-width: 650px) {
-    .wrapper__sign-choice {
-        flex-direction: column;
-        align-items: center;
-    }
-} */
-
-/* @media (max-width: 700px) {
-    .wrapper__sign-choice {
-        width: 100px;
-        height: 100px;
+/* @media (min-width: 1000px) {
+    html,
+    body {
+        height: 100%;
     }
 } */
