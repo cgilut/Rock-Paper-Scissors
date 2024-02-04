@@ -79,7 +79,7 @@ header {
 
 .wrapper__main-game {
     color: #fff;
-    border: 2px solid lime;
+    /* border: 2px solid lime; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -94,7 +94,7 @@ header {
 }
 
 .wrapper__score-board {
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     display: flex;
     text-align: center;
     justify-content: space-evenly;
@@ -114,7 +114,7 @@ header {
     justify-content: center;
     max-width: 200px;
     width: 100%;
-    border: 2px solid skyblue;
+    /* border: 2px solid skyblue; */
     margin: 10px;
 }
 
@@ -128,23 +128,30 @@ header {
     font-size: 5rem;
 }
 
+.chosen {
+    width: 160px;
+    height: 160px;
+}
+
+.wrapper__your-sign .chosen {
+    box-shadow: 0 0 10px 10px lime;
+}
+
 .wrapper__sign-choice {
-    border: 2px solid hotpink;
+    /* border: 2px solid hotpink; */
     display: flex;
     text-align: center;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-.wrapper__rock,
-.wrapper__paper,
-.wrapper__scissors {
+.wrapper__button-sign {
     background: #606060;
     height: 160px;
     width: 160px;
-    border: 2px solid #000; 
+    border: 2px solid #f0705a; 
     border-radius: 20px;
     cursor: pointer;
     margin: 10px auto;
@@ -164,18 +171,29 @@ img.wrapper__img-rock {
     padding: 10px;
 }
 
-.wrapper__rock:hover,
-.wrapper__paper:hover,
-.wrapper__scissors:hover {
+.wrapper__button-sign:hover {
     border: 3px solid #000;
     background: #adadad;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
     transform: scale(1.05)
 }
 
-/* @media (min-width: 1000px) {
-    html,
-    body {
-        height: 100%;
-    }
-} */
+.your-choice {
+    background: rgb(114, 192, 114);
+    height: 160px;
+    width: 160px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    /* margin: 10px auto; */
+    /* transition: transform 0.3s ease; */
+}
+
+.comp-choice {
+    background: rgb(192, 114, 114);
+    height: 160px;
+    width: 160px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    /* margin: 10px auto; */
+    /* transition: transform 0.3s ease; */
+}
