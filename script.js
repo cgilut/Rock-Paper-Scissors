@@ -1,80 +1,108 @@
 "use strict"
 
-// get input from the user and save it into a function
+const btnSigns = document.querySelectorAll('.wrapper__button-sign')
+const yourSignDiv = document.querySelector('.wrapper__your-sign')
+const compSignDiv = document.querySelector('.wrapper__opponent-sign')
+const roundOutcomeText = document.querySelector('.wrapper__outcome')
+const yourScore = document.querySelector('.wrapper__your-score')
+const compScore = document.querySelector('.wrapper__opponent-score')
+let playerCounter = 0;
+let computerCounter = 0;
 
-function getPlayerSelection () {
-    let playerSign = prompt("Rock, paper or scissors?");
-        playerSign = playerSign.toLowerCase()
-            while (
-                playerSign != "rock" &&
-                playerSign != "paper" &&
-                playerSign != "scissors"
-            ) {
-                playerSign = prompt("Rock, paper or scissors?!");
-                playerSign = playerSign.toLowerCase()
-            }
-            return playerSign;
-}
+function whenButtonClicked() {
+
+    let playerSelection = this.id;
+    let computerSelection = getComputerSelection();
 
 
-// get a random input from computer and save it into a function
+    function getComputerSelection() {
 
-function getComputerSelection() {
-    let signArray = [ "rock" , "paper" , "scissors" ];
-    let randomSign = Math.floor(Math.random() * 3);
-    let computerSign = signArray[randomSign];
-    return computerSign;
-}
-
-// compare two function and decide the winner
-
-function playRound() {
-    let playerSelection = getPlayerSelection()
-    let computerSelection = getComputerSelection()
-        console.log(playerSelection, computerSelection)
-    if (
-        (playerSelection == "rock" && computerSelection == "rock") ||
-        (playerSelection == "paper" && computerSelection == "paper") ||
-        (playerSelection == "scissors" && computerSelection == "scissors")
-    ) {
-        alert("Draw!");
-    } else if (
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "paper" && computerSelection == "rock") ||
-        (playerSelection == "scissors" && computerSelection == "paper")
-    ) {
-        alert("You win the round!");
-        return "Player";
-    } else {
-        alert("You lose the round!");
-        return "Computer";
+        let signArray = [ "rock" , "paper" , "scissors" ];
+        // math.random gives a number from 0 to 1, excluding 1
+        // then we multiply it by 3 and round down,
+        // that way we get either 0, 1 or 2, which corresponds
+        // to the objects in array
+        let randomSign = Math.floor(Math.random() * 3);
+        let computerSign = signArray[randomSign];
+        return computerSign;
+        
     }
+
+    yourSignDiv.classList.remove('won', 'lost');
+    compSignDiv.classList.remove('won', 'lost');
+
+    yourSignDiv.innerHTML = `<img src="assets/hand-${playerSelection}.png" 
+        alt="Your Sign" class = "wrapper__img-${playerSelection}">`;
+    yourSignDiv.classList.add('your-choice');
+
+    compSignDiv.innerHTML = `<img src="assets/hand-${computerSelection}.png" 
+        alt="Opponent's Sign" class = "wrapper__img-${computerSelection}">`;
+    compSignDiv.classList.add('comp-choice')
+
+    function playRound() {
+
+        if (
+            (playerSelection == "rock" && computerSelection == "rock") ||
+            (playerSelection == "paper" && computerSelection == "paper") ||
+            (playerSelection == "scissors" && computerSelection == "scissors")
+        ) {
+            roundOutcomeText.textContent = 
+                `${playerSelection.charAt(0).toUpperCase()}${playerSelection.slice(1)}
+                against ${computerSelection}, its a draw!`;
+        } else if (
+            (playerSelection == "rock" && computerSelection == "scissors") ||
+            (playerSelection == "paper" && computerSelection == "rock") ||
+            (playerSelection == "scissors" && computerSelection == "paper")
+        ) {
+            roundOutcomeText.textContent = 
+                `${playerSelection.charAt(0).toUpperCase()}${playerSelection.slice(1)}
+                beats ${computerSelection}, you win the round!`;
+            yourSignDiv.classList.add('won');
+            compSignDiv.classList.add('lost');
+            playerCounter++;
+            yourScore.textContent = `You: ${playerCounter}`;
+        } else {
+            roundOutcomeText.textContent = 
+                `${computerSelection.charAt(0).toUpperCase()}${computerSelection.slice(1)} 
+                beats ${playerSelection}, you lose the round!`;
+            yourSignDiv.classList.add('lost');
+            compSignDiv.classList.add('won');
+            computerCounter++;
+            compScore.textContent = `Opponent: ${computerCounter}`;
+        }
+
+        if (playerCounter === 5 || computerCounter === 5) {
+            endTheGame();
+        }
+
+    }
+
+    function endTheGame() {
+        if (playerCounter === 5) {
+            alert('You won the game!')
+        } else {
+            alert('You lost the game!')
+        }
+        resetToDefaultState();
+    }
+
+    function resetToDefaultState() {
+        roundOutcomeText.textContent = 'Choose your weapon in a bo7!';
+        yourSignDiv.innerHTML = '❔';
+        compSignDiv.innerHTML = '❔';
+        yourScore.textContent = 'You: 0';
+        compScore.textContent = 'Opponent: 0';
+        playerCounter = 0;
+        computerCounter = 0;
+        yourSignDiv.classList.remove('won', 'lost', 'your-choice');
+        compSignDiv.classList.remove('won', 'lost', 'comp-choice');
+    }
+
+    playRound();
 }
 
-function game() {
-    let playerCounter = 0
-    let computerCounter = 0
-    let i = 0
-// play until 5 rounds are played and count # of wins by player and computer
-    for (i = 0; i < 5; i++) {
-        let roundOutcome = playRound();
-            if (roundOutcome == "Computer") {
-                computerCounter = computerCounter + 1
-                console.log(computerCounter)
-            }
-            else if (roundOutcome == "Player") {
-                playerCounter = playerCounter + 1
-                console.log(playerCounter)
-            }
-    }
-// determine the winner 
-    if (playerCounter > computerCounter) {
-        alert("You win the game!")
-    } else if (computerCounter > playerCounter) {
-        alert("You lose the game!")
-    } else {
-        alert("It's a draw!")
-    }
-}
+btnSigns.forEach(button => {
+    button.addEventListener('click', whenButtonClicked);
+});
 
-game()
+
