@@ -71,14 +71,14 @@ function whenButtonClicked() {
             compScore.textContent = `Opponent: ${computerCounter}`;
         }
 
-        if (playerCounter === 5 || computerCounter === 5) {
+        if (playerCounter === 3 || computerCounter === 3) {
             endTheGame();
         }
 
     }
 
     function endTheGame() {
-        if (playerCounter === 5) {
+        if (playerCounter === 3) {
             alert('You won the game!')
         } else {
             alert('You lost the game!')
