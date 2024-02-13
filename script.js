@@ -6,6 +6,9 @@ const compSignDiv = document.querySelector('.wrapper__computer-sign')
 const roundOutcomeText = document.querySelector('.wrapper__outcome')
 const yourScore = document.querySelector('.wrapper__your-score')
 const compScore = document.querySelector('.wrapper__computer-score')
+const endOfGamePopup = document.querySelector('.endOfGamePopup')
+const gameOutcomeText = document.querySelector('.endOfGamePopup__inner-text')
+const closeButton = document.querySelector('#endOfGamePopup__closeButton')
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -78,16 +81,28 @@ function whenButtonClicked() {
     }
 
     function endTheGame() {
+
+        endOfGamePopup.classList.add('active')
         if (playerCounter === 3) {
-            alert('You won the game!')
+            gameOutcomeText.innerHTML = 
+            `You <span class="outcome-highlight">won</span> the game<br> 
+            ${playerCounter} : ${computerCounter}`;
         } else {
-            alert('You lost the game!')
+            gameOutcomeText.innerHTML = 
+            `You <span class="outcome-highlight">lost</span> the game<br>
+            ${playerCounter} : ${computerCounter}`;
         }
-        resetToDefaultState();
+
+        closeButton.addEventListener('click', () => {
+            setTimeout(resetToDefaultState, 200);
+            endOfGamePopup.classList.remove('active');
+        });
+        
     }
 
     function resetToDefaultState() {
-        roundOutcomeText.textContent = 'Choose your weapon in a bo7!';
+
+        roundOutcomeText.textContent = 'Choose your weapon best of 5!';
         yourSignDiv.innerHTML = '❔';
         compSignDiv.innerHTML = '❔';
         yourScore.textContent = 'You: 0';
@@ -96,6 +111,7 @@ function whenButtonClicked() {
         computerCounter = 0;
         yourSignDiv.classList.remove('won', 'lost', 'your-choice');
         compSignDiv.classList.remove('won', 'lost', 'comp-choice');
+
     }
 
     playRound();
