@@ -2,10 +2,10 @@
 
 const btnSigns = document.querySelectorAll('.wrapper__button-sign')
 const yourSignDiv = document.querySelector('.wrapper__your-sign')
-const compSignDiv = document.querySelector('.wrapper__opponent-sign')
+const compSignDiv = document.querySelector('.wrapper__computer-sign')
 const roundOutcomeText = document.querySelector('.wrapper__outcome')
 const yourScore = document.querySelector('.wrapper__your-score')
-const compScore = document.querySelector('.wrapper__opponent-score')
+const compScore = document.querySelector('.wrapper__computer-score')
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -36,7 +36,7 @@ function whenButtonClicked() {
     yourSignDiv.classList.add('your-choice');
 
     compSignDiv.innerHTML = `<img src="assets/hand-${computerSelection}.png" 
-        alt="Opponent's Sign" class = "wrapper__img-${computerSelection}">`;
+        alt="Computer's Sign" class = "wrapper__img-${computerSelection}">`;
     compSignDiv.classList.add('comp-choice')
 
     function playRound() {
@@ -68,7 +68,7 @@ function whenButtonClicked() {
             yourSignDiv.classList.add('lost');
             compSignDiv.classList.add('won');
             computerCounter++;
-            compScore.textContent = `Opponent: ${computerCounter}`;
+            compScore.textContent = `Computer: ${computerCounter}`;
         }
 
         if (playerCounter === 3 || computerCounter === 3) {
@@ -91,7 +91,7 @@ function whenButtonClicked() {
         yourSignDiv.innerHTML = '❔';
         compSignDiv.innerHTML = '❔';
         yourScore.textContent = 'You: 0';
-        compScore.textContent = 'Opponent: 0';
+        compScore.textContent = 'Computer: 0';
         playerCounter = 0;
         computerCounter = 0;
         yourSignDiv.classList.remove('won', 'lost', 'your-choice');

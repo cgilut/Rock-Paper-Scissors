@@ -109,7 +109,7 @@ header {
 }
 
 .wrapper__you,
-.wrapper__opponent {
+.wrapper__computer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +121,7 @@ header {
 }
 
 .wrapper__your-sign,
-.wrapper__opponent-sign {
+.wrapper__computer-sign {
     width: 160px;
     height: 160px;
     display: flex;
