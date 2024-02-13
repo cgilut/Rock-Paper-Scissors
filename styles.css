@@ -17,6 +17,11 @@ body {
     align-items: center;
 }
 
+body.blur > *:not(.endOfGamePopup) {
+    filter: blur(3px); 
+    transition: filter 200ms ease;
+}
+
 header {
     background-color: #000;
     display: flex;
@@ -211,7 +216,7 @@ img.wrapper__img-rock {
     bottom: 0;
     opacity: 0;
     z-index: -1;
-    transition: all 0.3s ease-in-out;
+    transition: all 400ms ease-in-out;
 
     display: flex;
     justify-content: center;
@@ -231,13 +236,14 @@ img.wrapper__img-rock {
 }
 
 #endOfGamePopup__closeButton {
-    width: 100px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
     font-weight: 1000;
-    font-size: 1rem;
+    font-size: 1.3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     margin: 20px 0;
+    border-radius: 10px;
 }
 
 .endOfGamePopup.active {
@@ -251,3 +257,4 @@ img.wrapper__img-rock {
     #48abe0 1px 1px 5px, 
     #48abe0 -1px -1px 5px;
 }
+

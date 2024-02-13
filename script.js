@@ -9,6 +9,7 @@ const compScore = document.querySelector('.wrapper__computer-score')
 const endOfGamePopup = document.querySelector('.endOfGamePopup')
 const gameOutcomeText = document.querySelector('.endOfGamePopup__inner-text')
 const closeButton = document.querySelector('#endOfGamePopup__closeButton')
+const body = document.querySelector('body')
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -83,6 +84,7 @@ function whenButtonClicked() {
     function endTheGame() {
 
         endOfGamePopup.classList.add('active')
+        body.classList.add('blur')
         if (playerCounter === 3) {
             gameOutcomeText.innerHTML = 
             `You <span class="outcome-highlight">won</span> the game<br> 
@@ -111,7 +113,7 @@ function whenButtonClicked() {
         computerCounter = 0;
         yourSignDiv.classList.remove('won', 'lost', 'your-choice');
         compSignDiv.classList.remove('won', 'lost', 'comp-choice');
-
+        body.classList.remove('blur')
     }
 
     playRound();
