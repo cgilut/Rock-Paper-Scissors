@@ -1,6 +1,6 @@
 "use strict"
 
-const btnSigns = document.querySelectorAll('.wrapper__button-sign')
+const buttonSigns = document.querySelectorAll('.wrapper__button-sign')
 const yourSignDiv = document.querySelector('.wrapper__your-sign')
 const compSignDiv = document.querySelector('.wrapper__computer-sign')
 const roundOutcomeText = document.querySelector('.wrapper__outcome')
@@ -10,6 +10,7 @@ const endOfGamePopup = document.querySelector('.endOfGamePopup')
 const gameOutcomeText = document.querySelector('.endOfGamePopup__inner-text')
 const closeButton = document.querySelector('#endOfGamePopup__closeButton')
 const body = document.querySelector('body')
+const mode = document.querySelector('.header__buttons-mode')
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -119,8 +120,10 @@ function whenButtonClicked() {
     playRound();
 }
 
-btnSigns.forEach(button => {
+buttonSigns.forEach(button => {
     button.addEventListener('click', whenButtonClicked);
 });
 
-
+mode.addEventListener('click', () => {
+    document.querySelector('body').classList.toggle('active')
+});
