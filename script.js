@@ -123,10 +123,11 @@ function whenButtonClicked() {
 buttonSigns.forEach(button => {
 
     button.addEventListener('click', whenButtonClicked);
-    
+
 });
 
 const mode = document.querySelector('.header__buttons-mode')
+const el = document.documentElement.style
 let lightMode = localStorage.getItem('lightMode')
 // const enableLightMode = () => {
 //     lightMode = 'enabled'
@@ -136,18 +137,34 @@ mode.addEventListener('click', () => {
 
     lightMode = localStorage.getItem('lightMode');
     if (lightMode !== 'enabled') {
-        // check what mode is on
         // if its dark mode, switch to light
         // and change the icon sun
         localStorage.setItem('lightMode', 'enabled')
         modeButton.innerHTML = '<ion-icon name="moon-outline"></ion-icon>'
+        lightModeColors()
     }
     else {
         // if its light mode, switch to dark
         // and change the icon to moon
         localStorage.setItem('lightMode', null)
         modeButton.innerHTML = '<ion-icon name="sunny-outline"></ion-icon>'
+        darkModeColors()
     }
 
 });
 
+function lightModeColors() {
+    el.setProperty('--font-color', '#000')
+    el.setProperty('--header-color', '#fff')
+    el.setProperty('--background-color', '#111111')
+    el.setProperty('--wrapper-color', '#145789')
+    el.setProperty('--button-glow', '0 0 10px 5px rgba(111, 111, 111, 0.3);')
+};
+
+function darkModeColors() {
+    el.setProperty('--font-color', '#fff')
+    el.setProperty('--header-color', '#000')
+    el.setProperty('--background-color', '#333333')
+    el.setProperty('--wrapper-color', '#414141')
+    el.setProperty('--button-glow', '0 0 10px 5px rgba(255, 255, 255, 0.3)')
+};
