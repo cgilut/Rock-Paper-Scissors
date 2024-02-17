@@ -106,8 +106,8 @@ function whenButtonClicked() {
     function resetToDefaultState() {
 
         roundOutcomeText.textContent = 'Choose your weapon best of 5!';
-        yourSignDiv.innerHTML = '❔';
-        compSignDiv.innerHTML = '❔';
+        yourSignDiv.innerHTML = '?';
+        compSignDiv.innerHTML = '?';
         yourScore.textContent = 'You: 0';
         compScore.textContent = 'Computer: 0';
         playerCounter = 0;
@@ -155,10 +155,13 @@ mode.addEventListener('click', () => {
 
 function lightModeColors() {
     el.setProperty('--font-color', '#000')
-    el.setProperty('--header-color', '#fff')
-    el.setProperty('--background-color', '#111111')
-    el.setProperty('--wrapper-color', '#145789')
-    el.setProperty('--button-glow', '0 0 10px 5px rgba(111, 111, 111, 0.3);')
+    el.setProperty('--header-color', '#777777')
+    el.setProperty('--background-color', '#cccccc')
+    el.setProperty('--wrapper-color', '#bbbbbb')
+    el.setProperty('--button-glow', '0 0 10px 5px rgb(38, 0, 255, 0.5)')
+    el.setProperty('--orange', '#000')
+    el.setProperty('--sign-button-color', '#fff')
+    el.setProperty('--sign-button-hover', '#fcffd0')
 };
 
 function darkModeColors() {
@@ -167,4 +170,7 @@ function darkModeColors() {
     el.setProperty('--background-color', '#333333')
     el.setProperty('--wrapper-color', '#414141')
     el.setProperty('--button-glow', '0 0 10px 5px rgba(255, 255, 255, 0.3)')
+    el.setProperty('--orange', '#f0705a')
+    el.setProperty('--sign-button-color', '#606060')
+    el.setProperty('--sign-button-hover', '#adadad')
 };
