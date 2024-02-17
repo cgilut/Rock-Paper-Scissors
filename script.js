@@ -10,7 +10,7 @@ const endOfGamePopup = document.querySelector('.endOfGamePopup')
 const gameOutcomeText = document.querySelector('.endOfGamePopup__inner-text')
 const closeButton = document.querySelector('#endOfGamePopup__closeButton')
 const body = document.querySelector('body')
-const mode = document.querySelector('.header__buttons-mode')
+const modeButton = document.querySelector('.header__buttons-mode')
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -121,9 +121,33 @@ function whenButtonClicked() {
 }
 
 buttonSigns.forEach(button => {
+
     button.addEventListener('click', whenButtonClicked);
+    
 });
 
-mode.addEventListener('click', () => {
-    document.querySelector('body').classList.toggle('active')
+const mode = document.querySelector('.header__buttons-mode')
+let lightMode = localStorage.getItem('lightMode')
+// const enableLightMode = () => {
+//     lightMode = 'enabled'
+// }
+
+mode.addEventListener('click', () => { 
+
+    lightMode = localStorage.getItem('lightMode');
+    if (lightMode !== 'enabled') {
+        // check what mode is on
+        // if its dark mode, switch to light
+        // and change the icon sun
+        localStorage.setItem('lightMode', 'enabled')
+        modeButton.innerHTML = '<ion-icon name="moon-outline"></ion-icon>'
+    }
+    else {
+        // if its light mode, switch to dark
+        // and change the icon to moon
+        localStorage.setItem('lightMode', null)
+        modeButton.innerHTML = '<ion-icon name="sunny-outline"></ion-icon>'
+    }
+
 });
+
