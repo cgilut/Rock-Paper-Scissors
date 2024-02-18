@@ -299,3 +299,12 @@ img.wrapper__img-rock {
     #48abe0 1px 1px 5px, 
     #48abe0 -1px -1px 5px;
 }
+
+@media screen and (max-width: 629px) {
+    .wrapper__outcome {
+      height: 164px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+    }
+  }

@@ -153,6 +153,11 @@ mode.addEventListener('click', () => {
 
 });
 
+if (lightMode === 'enabled') {
+    lightModeColors()
+    modeButton.innerHTML = '<ion-icon name="moon-outline"></ion-icon>'
+};
+
 function lightModeColors() {
     el.setProperty('--font-color', '#000')
     el.setProperty('--header-color', '#777777')
